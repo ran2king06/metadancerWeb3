@@ -1,0 +1,1 @@
+"use strict";require("bootstrap-vue/dist/bootstrap-vue.css"),require("bootstrap/dist/css/bootstrap.css");var _bootstrapVue2=require("bootstrap-vue"),_vue=_interopRequireDefault(require("vue"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}_vue.default.use(_bootstrapVue2.BootstrapVue),_vue.default.use(_bootstrapVue2.IconsPlugin);

@@ -1,0 +1,416 @@
+"use strict";
+
+[{
+  "inputs": [],
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "Claim",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "Contribute",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": true,
+    "internalType": "address",
+    "name": "previousOwner",
+    "type": "address"
+  }, {
+    "indexed": true,
+    "internalType": "address",
+    "name": "newOwner",
+    "type": "address"
+  }],
+  "name": "OwnershipTransferred",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "Refund",
+  "type": "event"
+}, {
+  "inputs": [],
+  "name": "BUSD",
+  "outputs": [{
+    "internalType": "contract IERC20",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "claim",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "claimed",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "contribute",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "contributed",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "contributionMaxLimit",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "contributionMinLimit",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "hardCap",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "owner",
+  "outputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "refund",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }],
+  "name": "refundBalanceOf",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "renounceOwnership",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint64",
+    "name": "timestamp",
+    "type": "uint64"
+  }],
+  "name": "setClaimTimestamp",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "value",
+    "type": "uint256"
+  }],
+  "name": "setContributionMaxLimits",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "value",
+    "type": "uint256"
+  }],
+  "name": "setContributionMinLimits",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint32",
+    "name": "value",
+    "type": "uint32"
+  }],
+  "name": "setConversion",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "setHardCap",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "bool",
+    "name": "saleToggle",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "publicSaleToggle",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "refundToggle",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "claimToggle",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "setTimestampToNow",
+    "type": "bool"
+  }],
+  "name": "setStates",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address[]",
+    "name": "accounts",
+    "type": "address[]"
+  }, {
+    "internalType": "bool",
+    "name": "on",
+    "type": "bool"
+  }],
+  "name": "setSuperContributeAccounts",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "tokenContractAddress",
+    "type": "address"
+  }],
+  "name": "setTokenContract",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address[]",
+    "name": "accounts",
+    "type": "address[]"
+  }, {
+    "internalType": "bool",
+    "name": "on",
+    "type": "bool"
+  }],
+  "name": "setWhitelist",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "state",
+  "outputs": [{
+    "internalType": "uint64",
+    "name": "claimTimestamp",
+    "type": "uint64"
+  }, {
+    "internalType": "uint32",
+    "name": "conversion",
+    "type": "uint32"
+  }, {
+    "internalType": "bool",
+    "name": "isSaleStarted",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "isPublicSaleStarted",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "isRefundStarted",
+    "type": "bool"
+  }, {
+    "internalType": "bool",
+    "name": "isClaimStarted",
+    "type": "bool"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "superContribute",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "superContributeList",
+  "outputs": [{
+    "internalType": "bool",
+    "name": "",
+    "type": "bool"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "tokenContract",
+  "outputs": [{
+    "internalType": "contract IERC20",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "totalAmount",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "newOwner",
+    "type": "address"
+  }],
+  "name": "transferOwnership",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "whitelist",
+  "outputs": [{
+    "internalType": "bool",
+    "name": "",
+    "type": "bool"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "to",
+    "type": "address"
+  }, {
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "withdrawToken",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "stateMutability": "payable",
+  "type": "receive"
+}];

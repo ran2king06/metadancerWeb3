@@ -1,0 +1,1 @@
+"use strict";var mixin={data:function(){return{openWEBGL:!1}},methods:{callWEBGL:function(){this.openWEBGL=!0}}};
